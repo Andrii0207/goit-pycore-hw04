@@ -1,20 +1,19 @@
 import sys
-from pathlib import Path
+from pathlib import Path, PurePath
 from colorama import Fore, Back, Style
 
 
-def parse_folder(path):
-    
-    for element in path.iterdir():
+def parse_folder(directory):
+
+    for element in directory.iterdir(): 
         if element.is_dir():
+            print(Fore.BLUE + f"Folder 📂 {element}/")
             parse_folder(element)
-            print(Fore.MAGENTA + f"Folder {element}")
         else:
-            print(Fore.GREEN + f"file : {element}")
+            print(Fore.GREEN + f"\tfile 📄 {element.name}")
     
     print(Style.RESET_ALL)
     
-
 
 
 if __name__ == "__main__":

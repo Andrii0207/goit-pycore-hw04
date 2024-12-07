@@ -1,15 +1,11 @@
 from parser import parse_input
-from add import add_contact
-from change import change_contact
-from show import show_phone
-from all import show_all
+from handlers import add, all, change, show, delete
 
 
 def main():
     print("Welcome to the assistant bot!")
 
     contacts = {"John": "0987654321"}
-    # contacts = {}
 
     while True:
         user_input = input("Enter a command: ")
@@ -21,13 +17,15 @@ def main():
         elif command == "hello":
             print("How can I help you?")
         elif command == "add":
-            print(add_contact(args, contacts))
+            print(add.add_contact(args, contacts))
         elif command == "change":
-            print(change_contact(args, contacts))
+            print(change.change_contact(args, contacts))
         elif command == "phone":
-            print(show_phone(args, contacts))
+            print(show.show_phone(args, contacts))
         elif command == "all":
-            print(show_all(args, contacts))
+            print(all.show_all(args, contacts))
+        elif command == "delete":
+            print(delete.delete_contact(args, contacts))
         else:
             print("Invalid command.")
 
